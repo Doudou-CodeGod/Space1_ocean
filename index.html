@@ -3,14 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>spcace1</title>
+    <title>Entrance</title>
     
-  <script type="module" crossorigin src="./assets/index-577d93f2.js"></script>
-  <link rel="stylesheet" href="./assets/index-60c247ed.css">
+
+    <style>
+      @font-face {
+        font-family: 'PT Mono';
+        src: url('./assets/PTMono-Regular-9cd5cbd0.woff2') format('woff2'),
+             url('./assets/PTMono-Regular-4939a9a5.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+    
+  <script type="module" crossorigin src="./assets/index-c0b00706.js"></script>
+  <link rel="stylesheet" href="./assets/index-a32c9cb9.css">
 </head>
 <body>
-    <div id="container"></div>
-    <canvas class="webgl"></canvas>
+
+    <div id="floatingButton">
+        <img id="floatingButtonImage" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQwAAAEMCAYAAAAxjIiTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAHQUlEQVR4nO3c7W0c1xmG4VeB/pMdRKlAmwosd0BXEKoDuQJTHdAdiB3QFZjqgKwgZAXRVrDBAoeAkEjwQ3Ln411dFyDoj8Q5Mztz73yc4avdblcAib/ZSkBKMICYYAAxwQBiggHEBAOICQYQEwwgJhhATDCAmGAAMcEAYoIBxAQDiAkGEBMMICYYQEwwgJhgADHBAGKCAcQEA4gJBhATDCAmGEBMMICYYAAxwQBiggHEBAOICQYQEwwgJhhATDCAmGAAMcEAYoIBxAQDiAkGEBMMICYYQEwwgJhgADHBAGKCAcQEA4gJBhATDCAmGEBMMICYYAAxwQBiggHEBAOICQYQEwwgJhhATDCAmGAAMcEAYoIBxAQDiAkGEBMMICYYQOx14021qaqzqnr3jP97X1U3VfVpgnEd0n4dz8ff9Hc9/tx3XZNXu91uBcN4kjfjQP/pAD9rOw7I6xnHn9gH4vJA68j6XFXVh6r60u2z6RaMzTgzODnwz70a4ViDdyNgh15H1uVu7HO3nT6XTsE4HadyUx1IH6vqYqKfnZoqiKzT3fiCaHOm0emm5+XEB9Jv43JnSVOvI+vydlyatNHlDGN/IP97huUseWmy/6b5c6Fls5zt2L9bnGV0OcM4O7LlLLmOrMvJM5/0LaJLMOZ6rHgy7pUswaPTH1ebz75LMOa8t+DAhe/oEow5r+/aTqqBqXUJxpzPqpcKhlD9uNp89l2CMddMzD9mWs633Cy4bJbV5rPvdIbxeYblXM6wjO/ZT3d/WHD5LOPKGcY0pp7gcrWC0reaxMOLbVcwu/hJOgVjf5bxfqKffbeSg/V6wnVkXbZj/kWre1fdfh/G/rT95wOfuv8+HqWuZabdfh1/GTsUx+nxHZJWL55V09fbH51/9fswnvr+xd24/LhcceFPv1rHjXdM2nsYgbhu8HtYvqtzMICZ+RV9QEwwgJhgADHBAGKCAcQEA4gJBhATDCAmGEBMMICYYAAxwQBiggHEBAOICQYQEwwgJhhATDCAmGAAMcEAYoIBxAQDiAkGEBMMICYYQEwwgJhgADHBAGKCAcQEA4gJBhATDCAmGEBMMICYYAAxwQBiggHEBAOICQYQEwwgJhhATDCAmGAAMcEAYoIBxAQDiAkGEHvdfFO9G3+gi/uquhl/t9M1GBdV9aGqTlYwFniOz2Mfvu209V7tdrsVDCN2Our8tsl44a+8r6pPXbZSt2DcigVHqE00Ot30vBALjtRlVb3psGpdzjBOx00i9yw4VldVdb72detyhnEmFhy5sw6r1yUYmxWMAaZ00mE/FwxYj9O1fxZmegKxLsG4WcEYYGqrn/3ZJRitZsPBMzwIxuFcjw0Kx+qyw3p1uofxYQVjgCk8mOl5eNdjcgsck+2Yg/Glwzp1e0qynwn3cQXjgEN4GL+eoc09uo6PVffvlPxjnG1sVzAeeKp9KH4d7494vX1mmw4TXmC47XL58S3HEAxgJmZ6AjHBAGKCAcQEA4gJBhATDCAmGEBMMICYYAAxwQBiggHEBAOICQYQEwwgJhhATDCAmGAAMcEAYoIBxAQDiAkGEBMMICYYQEwwgJhgADHBAGKCAcQEA4gJBhATDCAmGEBMMICYYAAxwQBiggHEBAOICQYQEwwgJhhATDCAmGAAsddHsqnerWAMHMZtVX1psC03VXX6hH9/M+FYZtM1GG+q6kNVnVXV31cwHg5rW1XXVXVRVfcr2rbnY797+8z//1BVn6rqskkU/8+r3W63siH9pfOxwU9WPk4O4+MIx5I240B/bij+13bsx9fd9pFuwdjvOL+tYBzM62ocYEvYjMuJKb6g3o8QtdEpGPv7FH+uYBws49dxZjm32wOeWXzLP8cyWugUjHv3K35o23Hvas5r/znOaD93umnf5bGqm5ucjP1gTnNcBv00QthCl2BsVjAGljdnMN7M+CU1dwifrUswzLOgnjjv4aXm/Nafc71exExPINYlGGuavAM/rC7BaPPYiUnNOb16zmV5rHpg+2u8/3QYKJOae87CflLVvyZextY9jMPbP3v/vclYmcYfC3wTzzElfYnJaM/WaeLW6ThNnHLWHeu0xKStR1NO3mo1aauaPSX5Mjbu3QrGwnwexue+1NudFxOd3X7uNP/iUbfHqo/R+Di+dThuV2PS3tI3BfevtP884vVS27H/LhnBZ+v4evuj01HoNtNqid2PV7/XeEBtXnBmcNvxlfavdQ4GMDMzPYGYYAAxwQBiggHEBAOICQYQEwwgJhhATDCAmGAAMcEAYoIBxAQDiAkGEBMMICYYQEwwgJhgADHBAGKCAcQEA4gJBhATDCAmGEBMMICYYAAxwQBiggHEBAOICQYQEwwgJhhATDCAmGAAMcEAYoIBxAQDiAkGEBMMICYYQEwwgJhgADHBAGKCAcQEA4gJBhATDCAmGEBMMICYYAAxwQBiggHEBAOICQYQEwwgJhhATDCAmGAAmar6L+yr6+/C9Y8FAAAAAElFTkSuQmCC" alt="Floating Button">
+      </div>
+
+    <div class="intro">
+        <p class="intro-text">Hi! Visitor from <span id="location">Pasadena</span>!<br> <br> Unmapped is a virtual exhibition platform that brings together virtual interactive artworks inspired by the creation of user data. <br> <br>A space maked by distorted experience of time, where distance is collapsed and borders fluctuate, posits borderless truths and alternative futures to help us reimagin, and sit with, the present. </p>
+
+      </div>
     
+      <div id="topRightContainer">
+        <div id="clock">
+          <svg id="clockFace" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="12" fill="transparent" stroke="white" stroke-width="3" />
+            <line id="hourHand" x1="50" y1="50" x2="50" y2="30" stroke="white" stroke-width="3" stroke-linecap="round" />
+            <line id="minuteHand" x1="50" y1="50" x2="50" y2="30" stroke="white" stroke-width="3" stroke-linecap="round" />
+            <line id="secondHand" x1="50" y1="50" x2="50" y2="30" stroke="white" stroke-width="3" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div id="soundButton">
+        <img src="./assets/sound_white-7c315748.png" alt="Sound Button">
+        </div>
+        </div>
+
+    <div id="customButton">
+        <img id="customButtonImage" src="./assets/space1_map_white-bdc2e5d9.png" alt="Custom Button" />
+    </div>
+
+
+    
+    <div id="container"></div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/dat.gui@0.7.7/build/dat.gui.min.js"></script>
+
+
+    <video id="myVideo" style="display:none" autoplay loop muted>
+        <source src="./assets/vibe-1e6478a1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="./assets/BG-8e4bfc45.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      
+   
+
+
+      
+      
+      
+      
+      
+
+
+   
 </body>
 </html>
